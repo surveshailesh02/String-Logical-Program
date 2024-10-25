@@ -174,3 +174,169 @@ console.log(" Q.7 ========== WAP To Count 'a' Character =================");
     duplicateCharCount(strings3);
     console.log('');
  })
+
+ console.log(" Q.11 ========== WAP To Count 'Palindrome' =================");
+
+ function isPalindrome(strings4) {
+    const cleanStrings4 = strings4.toLowerCase().replace(/\s/g, '');
+    const len = cleanStrings4.length;
+
+    for (let index = 0; index < len / 2; index++) {
+        if (cleanStrings4[index] !== cleanStrings4[len - 1 - index]) {
+            return false;
+        }   
+    }
+    return true;
+ };
+
+ const strings4 = [ "madam", "banana", "radar","civil","noon" ];
+
+ strings4.forEach(strings4 => {
+     if (isPalindrome(strings4)) {
+        console.log(`"${strings4}" is a palindrome.`);
+     } else{
+        console.log(`"${strings4}" is not a palindrome.`);
+     }
+ });
+
+ console.log(" Q.12 ========== WAP To Count 'Anagram' =================");
+
+ function isAnagram(strings5,strings6) {
+    const cleanStrings5 = strings5.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const cleanStrings6 = strings6.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (cleanStrings5.length !== cleanStrings6.length) {
+        return false;
+    }
+    const sortedStrings5 = cleanStrings5.split('').sort().join('');
+    const sortedStrings6 = cleanStrings6.split('').sort().join('');
+    return sortedStrings5 == sortedStrings6;
+ }
+ const pairs = [["Listen", "silent"],["heart","earth"],["debit card", "credit card"]];
+ pairs.forEach(pair => {
+    const strings5 = pair[0];
+    const strings6 = pair[1];
+
+    if (isAnagram(strings5,strings6)) {
+        console.log(`"${strings5}" and "${strings6}" are anagrams.`);
+    }else{
+        console.log(`"${strings5}" and "${strings6}" are not anagrams.`);
+    }
+ });
+
+ console.log(" Q.13 ========== WAP To Remove character from strings  =================");
+
+ function removeChar(strings7,charToRemove) {
+    const regex = new RegExp(charToRemove, 'g');
+    return strings7.replace(regex, '');
+ }
+
+ const pairs1 = [
+    ["Java@Script", '@'],
+    ["Softyware", 'y'],
+    ["Code mind", ' ']
+ ];
+
+ pairs1.forEach(pairs1 =>{
+    const strings7 = pairs1[0];
+    const charToRemove = pairs1[1];
+    const result = removeChar(strings7, charToRemove);
+    console.log(`Original String: "${strings7}",Removed '${charToRemove}': "${result}"`);
+ });
+
+ console.log(" Q.14 ========== WAP To Reverse The Words from strings  =================");
+
+ function reverseWord(strings8) {
+    const Words = strings8.split(' ');
+    const reverseWords = Words.map(Words =>{
+        return Words.split('').reverse().join('');
+    });
+    return reverseWords.join(' ');
+ }
+ const strings8 = [ "Arise! Awake! and stop not until the goal is reached",
+                    "Learn with us, Job with us" ];
+
+  strings8.forEach(strings8 =>{
+    const reversedString =reverseWord(strings8);
+    console.log(`Original String: "${strings8}"`);
+    console.log(`Reversed Words: "${reversedString}"`);
+    console.log('');
+  })
+
+  console.log(" Q.15 ========== WAP To Swapping from strings  =================");
+
+  function swapWords() {
+    let WordOne = "Angular";
+    let wordTwo = "React";
+
+    [WordOne,wordTwo] = [wordTwo,WordOne];
+
+    console.log(`After swapping: `);
+    console.log(`wordOne: ${WordOne}`);
+    console.log(`wordTwo: ${wordTwo}`);
+
+  }
+
+  swapWords();
+
+  console.log(" Q.16 ========== WAP To Count spaces from strings  =================");
+
+  function spaceCount(strings9) {
+    let Count = 0;
+    for (let index = 0; index < strings9.length; index++) {
+        if (strings9[index] == ' ') {
+            Count++;
+        }
+    }
+    return Count;
+  }
+
+  const strings9 = [
+    "Revision is the mother of success",
+    "JavaScript is the language of internet world"
+  ];
+
+  strings9.forEach(strings9 => {
+    const Count = spaceCount(strings9);
+    console.log(`Number of spaces in "${strings9}": ${Count}`);
+  });
+
+  console.log(" Q.17 ========== WAP To Find Numeric Digits from strings  =================");
+
+  function DigitCount(strings10) {
+    let Count = 0;
+    for (let index = 0; index < strings10.length; index++) {
+        if (!isNaN(parseInt(strings10[index]))) {
+            Count++;
+        }
+    }
+    return Count;
+  }
+
+  const strings10 = [ "Codemind2019","Twenty24","Bharat194India" ];
+
+  strings10.forEach(strings10 =>{
+    const Count = DigitCount(strings10);
+    console.log(`Number of numeric digits in "${strings10}" : ${Count}`);
+    
+  })
+
+  console.log(" Q.18 ========== WAP To Count Consonants from strings  =================");
+
+  function ConsonantsCount(strings10) {
+    const Consonants = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
+    let Count = 0;  
+
+    for (let index = 0; index < strings10.length; index++) {
+        if (Consonants.includes(strings10[index])) {
+            Count++;
+        }
+    }
+    return Count;
+  }
+  const strings11 = [ "JavaScript","HTML and CSS","Language of Internet",
+                    "I am UI Developer","Do or Die" ];
+                    
+  strings11.forEach(strings11 =>{
+    console.log(`Number of Consonants in "${strings11}" : ${ConsonantsCount(strings11)}`);
+    
+  })                  
